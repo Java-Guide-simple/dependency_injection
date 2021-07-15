@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="deprt1" class="in.stcak.Didemo.model.Department">
+		<constructor-arg value="101"></constructor-arg>
+		<constructor-arg value="ME"></constructor-arg>
+	</bean>
+
+	<bean id="deprt2" class="in.stcak.Didemo.model.Department">
+		<constructor-arg value="102"></constructor-arg>
+		<constructor-arg value="ECE"></constructor-arg>
+	</bean>
+
+	<bean id="deprt3" class="in.stcak.Didemo.model.Department">
+		<property name="code">
+			<value>103</value>
+		</property>
+		<property name="departmentName">
+			<value>CSE</value>
+		</property>
+	</bean>
+
+	<bean id="stu1" class="in.stcak.Didemo.model.Student">
+		<constructor-arg value="Ram"></constructor-arg>
+		<constructor-arg value="111" type="int"></constructor-arg>
+		<constructor-arg>
+			<ref bean="deprt1" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="stu2" class="in.stcak.Didemo.model.Student">
+		<property name="name"><value>Shyam</value></property>
+		<property name="rollNo"><value>222</value></property>
+		<property name="department"><ref bean="deprt2"/></property>
+	</bean>
+		
+</beans>
